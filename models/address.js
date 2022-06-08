@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "address_id"
       });
 
+      this.belongsTo(models.User, {
+        foreignKey: 'user_id'
+      });
+
       this.belongsTo(models.Kecamatan, {
         foreignKey: 'kecamatan_id'
       });
@@ -25,10 +29,11 @@ module.exports = (sequelize, DataTypes) => {
 
       this.belongsTo(models.Province, {
         foreignKey: 'province_id'
-      })
+      });
     }
   };
   Address.init({
+    user_id: DataTypes.STRING,
     address: DataTypes.STRING,
     kecamatan_id: DataTypes.INTEGER,
     district_id: DataTypes.INTEGER,

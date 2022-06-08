@@ -14,10 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Cart, {
         foreignKey: 'user_id'
       })
+
+      this.hasMany(models.Address, {
+        foreignKey: 'user_id'
+      })
     }
   };
   User.init({
     name: DataTypes.STRING,
+    user_id: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,

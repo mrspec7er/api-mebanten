@@ -11,7 +11,10 @@ module.exports = {
       district_id: {
         type: Sequelize.INTEGER
       },
-      griya_banten_id: {
+      banten_id: {
+        type: Sequelize.INTEGER
+      },
+      griya_id: {
         type: Sequelize.INTEGER
       },
       shipping_cost: {

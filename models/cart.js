@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'banten_id'
       });
 
+      this.belongsTo(models.Griya, {
+        foreignKey: 'griya_id'
+      });
+
       this.belongsToMany(models.Banten_Options, {
         through: 'Cart_Option', foreignKey: 'cart_id'
       })
@@ -35,11 +39,12 @@ module.exports = (sequelize, DataTypes) => {
   };
   Cart.init({
     delivery: DataTypes.BOOLEAN,
-    user_id: DataTypes.INTEGER,
+    user_id: DataTypes.STRING,
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     name: DataTypes.STRING,
     banten_id: DataTypes.INTEGER,
+    griya_id: DataTypes.INTEGER,
     choices_date: DataTypes.DATE,
     address_id: DataTypes.INTEGER,
     shipping_cost: DataTypes.INTEGER,
