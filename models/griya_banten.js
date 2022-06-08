@@ -19,8 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'griya_id'
       });
 
-      this.hasMany(models.Shipping, {
-        foreignKey: 'griya_banten_id'
+      this.hasOne(models.Shipping, {
+        foreignKey: 'banten_id',
+      });
+
+      this.hasOne(models.Shipping, {
+        foreignKey: 'griya_id',
       });
       
     }

@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       email: {
         type: Sequelize.STRING
@@ -24,6 +24,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       banten_id: {
+        type: Sequelize.INTEGER
+      },
+      griya_id: {
         type: Sequelize.INTEGER
       },
       choices_date: {
