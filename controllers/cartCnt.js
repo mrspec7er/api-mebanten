@@ -136,7 +136,7 @@ exports.deliveryStore = async (req, res) => {
         });
 
         const totalOptionPrice = await getTotalOptions(banten_option);
-        const totalShippingCost = await getTotalShippingCost(address_id, griya_id, banten_id);
+        const totalShippingCost = await getTotalShippingCost(address_id, griya_id, banten_id, res);
         const total_price = banten.price + totalOptionPrice + totalShippingCost;
 
 
@@ -205,7 +205,7 @@ const getTotalOptions = async (id) => {
     return totalPrice
 }
 
-const getTotalShippingCost = async (address_id, griya_id, banten_id) => {
+const getTotalShippingCost = async (address_id, griya_id, banten_id, res) => {
 
 
     const address = await Address.findOne({
@@ -223,7 +223,11 @@ const getTotalShippingCost = async (address_id, griya_id, banten_id) => {
     });
 
     if (!address || !shipping) {
-        throw new Error('Address or Shipping Cost Undefine');
+        res.status(405).json({
+            error: {
+                message: "Address or Shipping Cost Undefine"
+            }
+        })
     }
     // console.log("SHIPPING", shipping);
     

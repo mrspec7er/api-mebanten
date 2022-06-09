@@ -46,8 +46,6 @@ exports.getOne = async (req, res) => {
 exports.store = async (req, res) => {
 
     const {name, price, min_order_day, desc, img} = req.body
-
-    console.log(req.body);
     
     const banten = await Banten.create({
         name,
