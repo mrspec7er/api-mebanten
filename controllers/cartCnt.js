@@ -221,7 +221,11 @@ const getTotalShippingCost = async (address_id, griya_id, banten_id) => {
             district_id: address.district_id
         }
     });
-    console.log("SHIPPING", shipping);
+
+    if (!address || !shipping) {
+        throw new Error('Address or Shipping Cost Undefine');
+    }
+    // console.log("SHIPPING", shipping);
     
 
     return shipping.shipping_cost
