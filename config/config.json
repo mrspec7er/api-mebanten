@@ -1,23 +1,47 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "mrc201",
-    "database": "mebanten_development",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "lpjymbrfdvkcmo",
+    "password": "d0220e3f7432bb833c8f61ec3fd5ad56a847a787384caf734ce48688a59be252",
+    "database": "d685thadics2f6",
+    "host": "ec2-63-32-248-14.eu-west-1.compute.amazonaws.com",
+    "dialect": "postgres",
+    "port": "5432",
+    "dialectOptions": {
+      "ssl": {
+       "require": true, 
+        "rejectUnauthorized": false 
+      }
+    }
   },
   "test": {
-    "username": "postgres",
-    "password": "mrc201",
-    "database": "mebanten_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "lpjymbrfdvkcmo",
+    "password": "d0220e3f7432bb833c8f61ec3fd5ad56a847a787384caf734ce48688a59be252",
+    "database": "d685thadics2f6",
+    "host": "ec2-63-32-248-14.eu-west-1.compute.amazonaws.com",
+    "dialect": "postgres",
+    "port": "5432",
+    "dialectOptions": {
+      "ssl": {
+       "require": true, 
+        "rejectUnauthorized": false 
+      }
+    }
   },
   "production": {
-    "username": "postgres",
-    "password": "mrc201",
-    "database": "mebanten_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "lpjymbrfdvkcmo",
+    "password": "d0220e3f7432bb833c8f61ec3fd5ad56a847a787384caf734ce48688a59be252",
+    "database": "d685thadics2f6",
+    "host": "ec2-63-32-248-14.eu-west-1.compute.amazonaws.com",
+    "dialect": "postgres",
+    "port": "5432",
+    "dialectOptions": {
+      "ssl": {
+       "require": true, 
+        "rejectUnauthorized": false 
+      }
+    }
   }
 }
+
+
+
