@@ -1,8 +1,13 @@
-const {Griya, Griya_Banten} = require("../models");
+const {Griya} = require("../models");
 
 exports.index = async (req, res) => {
 
-    const griya = await Griya.findAll();
+    const {district_id} = req.params;
+    const griya = await Griya.findAll({
+        where: {
+            district_id
+        }
+    });
 
     res.status(200).json({
         data: griya
@@ -11,29 +16,15 @@ exports.index = async (req, res) => {
 
 exports.store = async (req, res) => {
 
-    const {name, desc} = req.body
+    const {name, desc, district_id} = req.body
     
     const griya = await Griya.create({
         name,
-        desc
+        desc,
+        district_id
     });
 
     res.status(200).json({
         data: griya
-    })
-}
-
-exports.griyaBantens = async (req, res) => {
-
-    const {griya_id, banten_id} = req.body
-
-    
-    const griyaBanten = await Griya_Banten.create({
-        griya_id,
-        banten_id
-    });
-
-    res.status(200).json({
-        data: griyaBanten
     })
 }

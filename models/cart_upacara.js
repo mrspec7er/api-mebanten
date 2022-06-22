@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Cart extends Model {
+  class Cart_Upacara extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,39 +15,34 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_id'
       });
 
-      this.belongsTo(models.Address, {
-        foreignKey: 'address_id'
-      });
 
-      this.belongsTo(models.Banten, {
+      this.belongsTo(models.Banten_Upacara, {
         foreignKey: 'banten_id'
       });
 
-      this.belongsToMany(models.Banten_Options, {
-        through: 'Cart_Option', foreignKey: 'cart_id'
+      this.belongsToMany(models.Banten_Option_Upacara, {
+        through: 'Cart_Option_Upacara', foreignKey: 'cart_id'
       })
 
-      this.hasMany(models.Cart_Option, {
+      this.hasMany(models.Cart_Option_Upacara, {
         foreignKey: 'cart_id'
       })
-
+      
     }
   };
-  Cart.init({
+  Cart_Upacara.init({
     user_id: DataTypes.STRING,
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     name: DataTypes.STRING,
     banten_id: DataTypes.INTEGER,
     choices_date: DataTypes.DATE,
-    address_id: DataTypes.INTEGER,
-    shipping_cost: DataTypes.INTEGER,
     total_price: DataTypes.INTEGER,
     payment_status: DataTypes.STRING,
     payment_date: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'Cart',
+    modelName: 'Cart_Upacara',
   });
-  return Cart;
+  return Cart_Upacara;
 };

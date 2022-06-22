@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      district_id: {
+        type: Sequelize.INTEGER
+      },
       desc: {
         type: Sequelize.TEXT
       },

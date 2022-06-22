@@ -10,5 +10,7 @@ router.get("/v1/cart/:id", verifyToken, cartController.getOne);
 
 //Delivery Order
 router.post("/v1/delivery-cart", verifyToken, cartController.deliveryStore);
+router.get("/v1/delivery-cart", verifyToken, cartController.deliveryGetAll);
+router.get("/v1/delivery-cart/:id", verifyToken, cartController.deliveryGetOne);
 
 module.exports = router

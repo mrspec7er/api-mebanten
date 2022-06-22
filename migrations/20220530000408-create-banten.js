@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      griya_id: {
+        type: Sequelize.INTEGER
+      },
       price: {
         type: Sequelize.INTEGER
       },

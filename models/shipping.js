@@ -15,20 +15,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'district_id'
       });
 
-      this.belongsTo(models.Griya_Banten, {
+      this.belongsTo(models.Banten, {
         foreignKey: 'banten_id'
       });
-
-      this.belongsTo(models.Griya_Banten, {
-        foreignKey: 'griya_id'
-      });
-
     }
   };
   Shipping.init({
     district_id: DataTypes.INTEGER,
     banten_id: DataTypes.INTEGER,
-    griya_id: DataTypes.INTEGER,
     shipping_cost: DataTypes.INTEGER
   }, {
     sequelize,

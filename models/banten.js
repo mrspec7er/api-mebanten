@@ -11,12 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsToMany(models.Griya, {
-        through: 'Griya_Banten', foreignKey: 'banten_id'
-      });
-
-      this.hasMany(models.Griya_Banten, {
-        foreignKey: 'banten_id'
+      this.belongsTo(models.Griya, {
+        through: 'Griya', foreignKey: 'griya_id'
       });
 
       this.hasMany(models.Banten_Options, {
@@ -26,10 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Cart, {
         foreignKey: 'banten_id'
       })
+
+      this.hasOne(models.Shipping, {
+        foreignKey: 'banten_id'
+      })
     }
   };
   Banten.init({
     name: DataTypes.STRING,
+    griya_id: DataTypes.INTEGER,
     price: DataTypes.INTEGER,
     min_order_day: DataTypes.INTEGER,
     desc: DataTypes.TEXT,
