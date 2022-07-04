@@ -4,6 +4,7 @@ const cartRouter = require("./cartRtr");
 const authRouter = require("./authRtr");
 const addressRouter = require("./addressRtr");
 const shippingRouter = require("./shippingRtr");
+const paymentRouter = require("./paymentRtr");
 
 
 function routes(app) {
@@ -13,6 +14,7 @@ function routes(app) {
     app.use(authRouter);
     app.use(addressRouter);
     app.use(shippingRouter);
+    app.use(paymentRouter);
 
 
     app.all("*", (req, res) => {

@@ -11,6 +11,9 @@ module.exports = {
       user_id: {
         type: Sequelize.STRING
       },
+      transaction_id: {
+        type: Sequelize.INTEGER
+      },
       email: {
         type: Sequelize.STRING
       },
@@ -33,6 +36,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       total_price: {
+        type: Sequelize.INTEGER
+      },
+      fee: {
+        type: Sequelize.INTEGER
+      },
+      payment_status_code: {
         type: Sequelize.INTEGER
       },
       payment_status: {

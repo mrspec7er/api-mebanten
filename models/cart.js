@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Cart.init({
     user_id: DataTypes.STRING,
+    transaction_id: DataTypes.INTEGER,
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     name: DataTypes.STRING,
@@ -43,6 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     address_id: DataTypes.INTEGER,
     shipping_cost: DataTypes.INTEGER,
     total_price: DataTypes.INTEGER,
+    fee: DataTypes.INTEGER,
+    payment_status_code: DataTypes.INTEGER,
     payment_status: DataTypes.STRING,
     payment_date: DataTypes.DATE
   }, {
