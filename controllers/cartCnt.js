@@ -28,7 +28,7 @@ exports.store = async (req, res) => {
             banten_id,
             choices_date,
             total_price,
-            payment_status: "WAITING"
+            payment_status: "Waiting"
         });
 
         if (!!banten_option) {
@@ -83,7 +83,8 @@ exports.getAll = async (req, res) => {
         include: [{
             model: Banten_Upacara,
             include: Griya
-        }]
+        }],
+        attributes : {exclude: ['transaction_id']}
     });
 
     res.status(200).json({
@@ -110,7 +111,8 @@ exports.getOne = async (req, res) => {
             {
                 model: Banten_Option_Upacara
             }
-        ]
+        ],
+        attributes : {exclude: ['transaction_id']}
         });
     
         // if (cart.delivery === true) {

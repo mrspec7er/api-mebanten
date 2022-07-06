@@ -59,7 +59,7 @@ exports.directPayment = async (req, res) => {
             }
         ).then(async (response) => {
 
-            const cartData = await cart.update({
+            await cart.update({
                 transaction_id: response.data.Data.TransactionId,
                 payment_status: "Pending",
                 payment_status_code: 0,
@@ -67,11 +67,16 @@ exports.directPayment = async (req, res) => {
                 payment_date: response.data.Data.Expired
             })
 
+            let payment = response.data;
+
+            //hiding transaction_id
+
+            //payment.Data.TransactionId = 001101000011000000110011
+
+            payment.Data.SessionId = 001101000011000000110011
+
             res.status(200).json({
-                data: {
-                    payment: response.data,
-                    cartData
-                }
+                data: payment
             })
 
         }).catch(err => {
@@ -160,13 +165,35 @@ exports.paymentNotify = async (req, res) => {
         console.log("QUERY : ", req.query);
         console.log("PARAMS : ", req.params);
 
-        res.status(200).json({
-            data: {
-                body: req.body,
-                query: req.query,
-                params: req.params
+        const {trx_id, status_code, status} = req.body;
+
+        const cart = await Cart_Upacara.findOne({
+            where: {
+                transaction_id: trx_id
             }
-        })
+        });
+
+        if (status_code === '1' && status === 'berhasil') {
+            
+            await cart.update({
+                payment_status: "Success",
+                payment_status_code: 1
+            });
+
+
+            res.status(200).json({
+                data: "Success"
+            })
+        }
+
+
+        const err = {
+            message : "Payment Fail"
+        }
+
+        res.status(500).json({
+            error: err
+        });
         
     } catch (err) {
         res.status(500).json({
