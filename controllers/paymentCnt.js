@@ -231,7 +231,7 @@ exports.paymentNotify = async (req, res) => {
 
 // Delivery Order
 
-exports.deiveryDirectPayment = async (req, res) => {
+exports.deliveryDirectPayment = async (req, res) => {
     
     try {
 

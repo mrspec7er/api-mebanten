@@ -8,4 +8,8 @@ router.post("/v1/direct-payment", verifyToken, paymentController.directPayment);
 router.post("/v1/payment-status", verifyToken, paymentController.paymentStatus);
 router.post("/v1/payment-notify", paymentController.paymentNotify);
 
+// delivery
+router.post("/v1/delivery-direct-payment", verifyToken, paymentController.deliveryDirectPayment);
+router.post("/v1/delivery-payment-notify", paymentController.deliveryPaymentNotify);
+
 module.exports = router
