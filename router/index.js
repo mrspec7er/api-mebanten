@@ -5,6 +5,7 @@ const authRouter = require("./authRtr");
 const addressRouter = require("./addressRtr");
 const shippingRouter = require("./shippingRtr");
 const paymentRouter = require("./paymentRtr");
+const aboutRouter = require("./aboutRtr");
 
 
 function routes(app) {
@@ -15,6 +16,7 @@ function routes(app) {
     app.use(addressRouter);
     app.use(shippingRouter);
     app.use(paymentRouter);
+    app.use(aboutRouter);
 
 
     app.all("*", (req, res) => {
