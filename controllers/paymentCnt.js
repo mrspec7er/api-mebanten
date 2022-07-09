@@ -3,10 +3,11 @@ const CryptoJS = require("crypto-js");
 const axios = require("axios");
 
 
-const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
-const va              = "0000007860925290";
+const apikey = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
+const va = "0000007860925290";
 // url api
-const url             = 'https://sandbox.ipaymu.com/api/v2/payment/direct';
+const url = 'https://sandbox.ipaymu.com/api/v2/payment/direct';
+const urlPaymentStatus = 'https://sandbox.ipaymu.com/api/v2/transaction';
 // request body, parameter sesuikan dengan dokumentasi api
 
 
@@ -130,7 +131,7 @@ exports.paymentStatus = async (req, res) => {
         // request
         axios(
             {
-                url,
+                urlPaymentStatus,
                 method: "POST",
                 headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
@@ -192,7 +193,7 @@ exports.paymentNotify = async (req, res) => {
 
             axios(
                 {
-                    url,
+                    urlPaymentStatus,
                     method: "POST",
                     headers: {
                         Accept: 'application/json', 'Content-Type': 'application/json',
@@ -342,7 +343,7 @@ exports.deliveryPaymentNotify = async (req, res) => {
         // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
         // const va              = "0000007860925290";
         // // url api
-        // const url             = 'https://sandbox.ipaymu.com/api/v2/transaction';
+        // const urlPaymentStatus             = 'https://sandbox.ipaymu.com/api/v2/transaction';
         // // request body, parameter sesuikan dengan dokumentasi api
 
 
@@ -361,7 +362,7 @@ exports.deliveryPaymentNotify = async (req, res) => {
 
             axios(
                 {
-                    url,
+                    urlPaymentStatus,
                     method: "POST",
                     headers: {
                         Accept: 'application/json', 'Content-Type': 'application/json',
