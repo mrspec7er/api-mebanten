@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "jamqdwwbscnjpy",
-    "password": "4bb2c7cfd249a881e114d4e4d67c167bbad4920f3229dc2753d79603d69a35b6",
-    "database": "d63f1c6v2l0j0f",
-    "host": "ec2-54-228-218-84.eu-west-1.compute.amazonaws.com",
+    "username": "postgres",
+    "password": "ZPOh21XAOUSlAm69TgZL",
+    "database": "railway",
+    "host": "containers-us-west-79.railway.app",
     "dialect": "postgres",
-    "port": "5432",
+    "port": "7585",
     "dialectOptions": {
       "ssl": {
        "require": true, 
@@ -28,12 +28,12 @@
     }
   },
   "production": {
-    "username": "jamqdwwbscnjpy",
-    "password": "4bb2c7cfd249a881e114d4e4d67c167bbad4920f3229dc2753d79603d69a35b6",
-    "database": "d63f1c6v2l0j0f",
-    "host": "ec2-54-228-218-84.eu-west-1.compute.amazonaws.com",
+    "username": "postgres",
+    "password": "ZPOh21XAOUSlAm69TgZL",
+    "database": "railway",
+    "host": "containers-us-west-79.railway.app",
     "dialect": "postgres",
-    "port": "5432",
+    "port": "7585",
     "dialectOptions": {
       "ssl": {
        "require": true, 
