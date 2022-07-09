@@ -171,7 +171,7 @@ exports.deliveryStore = async (req, res) => {
             choices_date,
             shipping_cost: totalShippingCost,
             total_price,
-            payment_status: "WAITING",
+            payment_status: "Waiting",
             address_id
         });
     
