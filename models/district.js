@@ -25,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
 
       this.belongsTo(models.Province, {
         foreignKey: 'province_id'
-      })
+      });
+
+      this.hasOne(models.Griya, {
+        foreignKey: 'district_id'
+      });
     }
   };
   District.init({

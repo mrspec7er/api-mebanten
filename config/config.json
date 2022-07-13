@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "ZPOh21XAOUSlAm69TgZL",
-    "database": "railway",
-    "host": "containers-us-west-79.railway.app",
-    "dialect": "postgres",
+    "username": "root",
+    "password": "U6y72&e$x4QM4_Fr",
+    "database": "mebanten",
+    "host": "149.129.198.72",
+    "dialect": "mariadb",
     "port": "7585",
     "dialectOptions": {
       "ssl": {

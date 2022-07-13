@@ -14,18 +14,21 @@ module.exports = {
      await queryInterface.bulkInsert('Abouts', [
       {
         img: 'https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN',
+        name: 'Whatsapp',
         url: 'https://www.web.whatsapp.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         img: 'https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg',
+        name: 'Instagram',
         url: 'https://www.instagram.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         img: 'https://help.twitter.com/content/dam/help-twitter/brand/logo.png',
+        name: 'Twitter',
         url: 'https://www.twitter.com',
         createdAt: new Date(),
         updatedAt: new Date()

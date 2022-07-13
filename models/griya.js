@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Banten_Upacara, {
         foreignKey: 'griya_id'
       });
+
+      this.belongsTo(models.District, {
+        foreignKey: 'district_id'
+      });
     }
   };
   Griya.init({
