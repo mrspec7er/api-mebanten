@@ -11,6 +11,8 @@ router.post("/v1/district", addressController.storeDistrict);
 router.get("/v1/kecamatan/:district_id", addressController.getKecamatan);
 router.post("/v1/kecamatan", addressController.storeKecamatan);
 router.post("/v1/address", verifyToken, addressController.storeAddress);
+router.put("/v1/address", verifyToken, addressController.updateAddress);
+router.delete("/v1/address", verifyToken, addressController.deleteAddress);
 router.get("/v1/address", verifyToken, addressController.getAddress);
 
 module.exports = router

@@ -1,22 +1,21 @@
 const {Cart, Cart_Upacara} = require("../models");
 const CryptoJS = require("crypto-js");
 const axios = require("axios");
+require('dotenv').config();
 
 
-const apikey = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
-const va = "0000007860925290";
+const apikey = process.env.PAYMENT_API_KEY;
+const va = process.env.PAYMENT_VA;
 
 
-const BaseURL = "https://node-http-module-production-b8ad.up.railway.app";
+const BaseURL = process.env.PAYMENT_BASE_URL;
 
 exports.directPayment = async (req, res) => {
     
     try {
 
-        // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
-        // const va              = "0000007860925290";
         // // url api
-        const url             = 'https://sandbox.ipaymu.com/api/v2/payment/direct';
+        const url             = process.env.PAYMENT_DIRECT_URL;
         // // request body, parameter sesuikan dengan dokumentasi api
 
         const notifyUrl = `${BaseURL}/v1/payment-notify`
@@ -108,7 +107,7 @@ exports.paymentStatus = async (req, res) => {
         // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
         // const va              = "0000007860925290";
         // // url api
-        const url             = 'https://sandbox.ipaymu.com/api/v2/transaction';
+        const url             = process.env.PAYMENT_STATUS_URL;
         // // request body, parameter sesuikan dengan dokumentasi api
 
         const {transaction_id} = req.body;
@@ -167,10 +166,9 @@ exports.paymentNotify = async (req, res) => {
 
         const {trx_id, status_code} = req.body;
 
-        // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
-        // const va              = "0000007860925290";
+        
         // // url api
-        const url             = 'https://sandbox.ipaymu.com/api/v2/transaction';
+        const url             = process.env.PAYMENT_STATUS_URL;
         // // request body, parameter sesuikan dengan dokumentasi api
 
 
@@ -245,7 +243,7 @@ exports.deliveryDirectPayment = async (req, res) => {
         // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
         // const va              = "0000007860925290";
         // // url api
-        const url             = 'https://sandbox.ipaymu.com/api/v2/payment/direct';
+        const url             = process.env.PAYMENT_DIRECT_URL;
         // // request body, parameter sesuikan dengan dokumentasi api
 
         const deliveryNotifyUrl = `${BaseURL}/v1/delivery-payment-notify`
@@ -339,7 +337,7 @@ exports.deliveryPaymentNotify = async (req, res) => {
         // const apikey          = "SANDBOXDF9BD69B-AD3C-44E6-855C-17BC479A768D-20220624131433";
         // const va              = "0000007860925290";
         // // url api
-        const url            = 'https://sandbox.ipaymu.com/api/v2/transaction';
+        const url            = process.env.PAYMENT_STATUS_URL;
         // // request body, parameter sesuikan dengan dokumentasi api
 
 

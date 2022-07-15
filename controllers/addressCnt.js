@@ -116,6 +116,58 @@ exports.storeAddress = async (req, res) => {
     }
 }
 
+exports.updateAddress = async (req, res) => {
+
+    const {address, province_id, district_id, kecamatan_id, phone, address_id} = req.body;
+    const {user_id} = res.locals;
+    
+    try {
+
+        const user_address = await Address.findOne({
+            where: {
+                id: address_id,
+                user_id
+            }
+        })
+
+        const updateAddress = await user_address.update({
+            user_id, address, province_id, district_id, kecamatan_id, phone
+        });
+    
+        res.status(200).json({
+            data: updateAddress
+        })
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
+exports.deleteAddress = async (req, res) => {
+
+    const {address_id} = req.body;
+    const {user_id} = res.locals;
+    
+    try {
+
+        const user_address = await Address.destroy({
+            where: {
+                id: address_id,
+                user_id
+            }
+        })
+    
+        res.status(200).json({
+            data: user_address
+        })
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+}
+
 exports.getAddress = async (req, res) => {
 
     const {user_id} = res.locals;
