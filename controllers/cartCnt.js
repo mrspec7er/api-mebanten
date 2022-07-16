@@ -84,7 +84,9 @@ exports.getAll = async (req, res) => {
             model: Banten_Upacara,
             include: Griya
         }],
-        attributes : {exclude: ['transaction_id']}
+        order: [
+            ['updatedAt', 'DESC']
+        ]
     });
 
     res.status(200).json({
@@ -217,7 +219,10 @@ exports.deliveryGetAll = async (req, res) => {
         include: [{
             model: Banten,
             include: Griya
-        }]
+        }],
+        order: [
+            ['updatedAt', 'DESC']
+        ],
     });
 
     res.status(200).json({

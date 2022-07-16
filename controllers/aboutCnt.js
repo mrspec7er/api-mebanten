@@ -3,7 +3,7 @@ const {About} = require("../models");
 exports.index = async (req, res) => {
 
     try {
-        const about = await About.findAll();
+        const about = await About.findAll({});
 
         res.status(200).json({
             data: about

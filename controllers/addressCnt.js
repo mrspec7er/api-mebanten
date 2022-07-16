@@ -146,7 +146,7 @@ exports.updateAddress = async (req, res) => {
 
 exports.deleteAddress = async (req, res) => {
 
-    const {address_id} = req.body;
+    const {address_id} = req.params;
     const {user_id} = res.locals;
     
     try {
