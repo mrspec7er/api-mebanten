@@ -27,5 +27,6 @@ router.post(
   authController.updateImageProfile
 );
 router.get("/v1/get-profile/:file_path", authController.getImageProfile);
+router.post("/v1/delete-profile", authController.deleteImageProfile);
 
 module.exports = router;

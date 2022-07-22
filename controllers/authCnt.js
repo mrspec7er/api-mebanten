@@ -1,5 +1,6 @@
 const admin = require("../config/firebaseConfig");
 const path = require("path");
+const fs = require("fs");
 require("dotenv").config();
 exports.index = async (req, res) => {
   const { user_id } = res.locals;
@@ -67,6 +68,30 @@ exports.getImageProfile = async (req, res, next) => {
     });
 
     // res.send(path.resolve("./"));
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+};
+
+exports.deleteImageProfile = async (req, res) => {
+  try {
+    const { img_profile } = req.body;
+    const imgPath = img_profile.split("/")[5];
+    const file = path.resolve("./") + "/img/" + imgPath;
+
+    if (file) {
+      fs.unlink(file, function (msg) {
+        res.status(201).json({
+          message: msg,
+        });
+      });
+    } else {
+      res.status(401).json({
+        message: "profile image undefine",
+      });
+    }
   } catch (err) {
     res.status(500).json({
       error: err.message,
