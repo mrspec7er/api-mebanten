@@ -21,12 +21,19 @@ const upload = multer({
 
 router.get("/v1/user", verifyToken, authController.index);
 router.post("/v1/register", verifyToken, authController.register);
+router.put("/v1/user", verifyToken, authController.updateUserProfile);
 router.post(
-  "/v1/update-profile",
+  "/v1/img-profile",
+  verifyToken,
   upload.single("img"),
-  authController.updateImageProfile
+  authController.updateProfilePic
 );
 router.get("/v1/get-profile/:file_path", authController.getImageProfile);
-router.post("/v1/delete-profile", authController.deleteImageProfile);
+// router.post(
+//   "/v1/update-profile",
+//   upload.single("img"),
+//   authController.updateImageProfile
+// );
+// router.post("/v1/delete-profile", authController.deleteImageProfile);
 
 module.exports = router;
