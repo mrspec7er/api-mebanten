@@ -3,7 +3,7 @@ name: Staging Phase
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   build:
