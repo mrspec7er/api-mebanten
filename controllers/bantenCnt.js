@@ -10,25 +10,31 @@ const {
 const { Op, QuertTypes } = require("sequelize");
 
 exports.getAll = async (req, res) => {
-  const { name, offset, limit } = req.query;
+  try {
+    const { name, offset, limit } = req.query;
 
-  const { griya_id } = req.params;
+    const { griya_id } = req.params;
 
-  const banten = await Banten_Upacara.findAndCountAll({
-    offset,
-    limit,
-    where: {
-      griya_id,
-      name: {
-        [Op.iLike]: `%${name}%`,
+    const banten = await Banten_Upacara.findAndCountAll({
+      offset: parseInt(offset),
+      limit: parseInt(limit),
+      where: {
+        griya_id: parseInt(griya_id),
+        name: {
+          [Op.like]: `%${name}%`,
+        },
       },
-    },
-    include: [Griya],
-  });
+      include: [Griya],
+    });
 
-  res.status(200).json({
-    data: banten,
-  });
+    res.status(200).json({
+      data: banten,
+    });
+  } catch (err) {
+    res.status(200).json({
+      message: err.message,
+    });
+  }
 };
 
 exports.getOne = async (req, res) => {
@@ -36,7 +42,7 @@ exports.getOne = async (req, res) => {
 
   const banten = await Banten_Upacara.findOne({
     where: {
-      id: banten_id,
+      id: parseInt(banten_id),
     },
     include: [Griya],
   });
@@ -82,7 +88,7 @@ exports.getOptions = async (req, res) => {
 
   const bantenOptions = await Banten_Option_Upacara.findAll({
     where: {
-      banten_id,
+      banten_id: parseInt(banten_id),
     },
   });
 
@@ -113,11 +119,11 @@ exports.deliveryGetAll = async (req, res) => {
     const district_id = address.district_id;
 
     const banten = await Banten.findAndCountAll({
-      offset,
-      limit,
+      offset: parseInt(offset),
+      limit: parseInt(limit),
       where: {
         name: {
-          [Op.iLike]: `%${name}%`,
+          [Op.like]: `%${name}%`,
         },
       },
       include: [
@@ -147,7 +153,7 @@ exports.deliveryGetOne = async (req, res) => {
 
   const address = await Address.findOne({
     where: {
-      id: address_id,
+      id: parseInt(address_id),
       user_id,
     },
   });
@@ -220,7 +226,7 @@ exports.deliveryGetOptions = async (req, res) => {
 
   const bantenOptions = await Banten_Options.findAll({
     where: {
-      banten_id,
+      banten_id: parseInt(banten_id),
     },
   });
 

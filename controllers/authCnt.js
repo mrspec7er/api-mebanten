@@ -37,7 +37,7 @@ exports.register = async (req, res) => {
 
     const { user_id } = res.locals;
     const { name, phone, email } = req.body;
-    const role = "UNDEFINE";
+    const role = "USER";
     const profile_pic =
       process.env.PAYMENT_BASE_URL + "/v1/get-profile/default.png";
 
