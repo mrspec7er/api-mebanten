@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -10,30 +10,34 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-     await queryInterface.bulkInsert('Abouts', [
-      {
-        img: 'https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN',
-        name: 'Whatsapp',
-        url: 'https://www.web.whatsapp.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        img: 'https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_960_720.jpg',
-        name: 'Instagram',
-        url: 'https://www.instagram.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        img: 'https://help.twitter.com/content/dam/help-twitter/brand/logo.png',
-        name: 'Twitter',
-        url: 'https://www.twitter.com',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      ], {});
+     */
+    await queryInterface.bulkInsert(
+      "Abouts",
+      [
+        {
+          img: "/v1/get-profile/instagram.jpg",
+          name: "Sosmed",
+          url: "https://www.instagram.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          img: "/v1/get-profile/wa-chat.jpg",
+          name: "WA Konsultasi",
+          url: "https://web.whatsapp.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          img: "/v1/get-profile/wa-help.jpg",
+          name: "WA Bantuan",
+          url: "https://web.whatsapp.com",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -43,6 +47,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Abouts', null, {restartIdentity: true});
-  }
+    await queryInterface.bulkDelete("Abouts", null, { restartIdentity: true });
+  },
 };

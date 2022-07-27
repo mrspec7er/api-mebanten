@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/clientAuth");
+const unregisterVerifyToken = require("../middleware/unregisterClientAuth");
 const authController = require("../controllers/authCnt");
 const multer = require("multer");
 
@@ -19,9 +20,9 @@ const upload = multer({
   //   dest: "../img",
 });
 
-router.get("/v1/user", verifyToken, authController.index);
-router.post("/v1/register", verifyToken, authController.register);
-router.put("/v1/user", verifyToken, authController.updateUserProfile);
+router.get("/v1/user", unregisterVerifyToken, authController.index);
+router.post("/v1/register", unregisterVerifyToken, authController.register);
+router.put("/v1/user", unregisterVerifyToken, authController.updateUserProfile);
 router.post(
   "/v1/img-profile",
   verifyToken,
