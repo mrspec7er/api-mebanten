@@ -6,6 +6,7 @@ const addressRouter = require("./addressRtr");
 const shippingRouter = require("./shippingRtr");
 const paymentRouter = require("./paymentRtr");
 const aboutRouter = require("./aboutRtr");
+const pingRouter = require("./ping")
 
 
 function routes(app) {
@@ -17,6 +18,7 @@ function routes(app) {
     app.use(shippingRouter);
     app.use(paymentRouter);
     app.use(aboutRouter);
+    app.use(pingRouter)
 
 
     app.all("*", (req, res) => {
