@@ -77,12 +77,21 @@ exports.directPayment = async (req, res) => {
           data: payment,
         });
       })
-      .catch((err) => {
+      .catch(async (err) => {
+        await cart.delete();
         res.status(500).json({
           error: err.message,
         });
       });
   } catch (err) {
+    const { cart_id } = req.body;
+    const cart = await Cart_Upacara.findOne({
+      where: {
+        id: parseInt(cart_id),
+        user_id,
+      },
+    });
+    await cart.delete();
     res.status(500).json({
       error: err.message,
     });
@@ -274,12 +283,21 @@ exports.deliveryDirectPayment = async (req, res) => {
           data: payment,
         });
       })
-      .catch((err) => {
+      .catch(async (err) => {
+        await cart.delete();
         res.status(500).json({
           error: err.message,
         });
       });
   } catch (err) {
+    const { cart_id } = req.body;
+    const cart = await Cart.findOne({
+      where: {
+        id: parseInt(cart_id),
+        user_id,
+      },
+    });
+    await cart.delete();
     res.status(500).json({
       error: err.message,
     });
