@@ -78,7 +78,7 @@ exports.directPayment = async (req, res) => {
         });
       })
       .catch(async (err) => {
-        await cart.delete();
+        await cart.destroy();
         res.status(500).json({
           error: err.message,
         });
@@ -91,7 +91,7 @@ exports.directPayment = async (req, res) => {
         user_id,
       },
     });
-    await cart.delete();
+    await cart.destroy();
     res.status(500).json({
       error: err.message,
     });
@@ -284,7 +284,7 @@ exports.deliveryDirectPayment = async (req, res) => {
         });
       })
       .catch(async (err) => {
-        await cart.delete();
+        await cart.destroy();
         res.status(500).json({
           error: err.message,
         });
@@ -297,7 +297,7 @@ exports.deliveryDirectPayment = async (req, res) => {
         user_id,
       },
     });
-    await cart.delete();
+    await cart.destroy();
     res.status(500).json({
       error: err.message,
     });
